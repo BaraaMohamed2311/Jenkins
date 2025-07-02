@@ -13,7 +13,7 @@ pipeline {
           sh """
             echo ${EC2_IP} 
             echo ${Tasketos_BRANCH}
-            ssh -i ${othersKey} ${EC2_IP}"
+            ssh -o StrictHostKeyChecking=no -v  -i ${othersKey} ${EC2_IP}"
               sudo systemctl stop apache2
               cd /var/www/html
               sudo git pull ${Tasketos_BRANCH}
