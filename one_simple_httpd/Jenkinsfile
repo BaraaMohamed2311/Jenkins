@@ -8,8 +8,8 @@ pipeline {
           sh """
             ssh -o StrictHostKeyChecking=no ${EC2_IP} "
               sudo systemctl stop apache2
-              cd /var/app
-              sudo git pull origin ${Tasketos_BRANCH}
+              sudo cd /var/www/html
+              sudo git pull ${Tasketos_BRANCH}
               sudo systemctl start apache2
             "
           """
